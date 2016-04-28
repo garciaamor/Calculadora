@@ -52,7 +52,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="boton3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="botonC" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="botonAC" min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="boton4" min="-2" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="bSumar" min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="boton7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -78,10 +78,11 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="bRestar" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="bDivid" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="bMulti" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="botonC" max="32767" attributes="0"/>
+                                      <Component id="bRestar" alignment="0" pref="52" max="32767" attributes="0"/>
+                                      <Component id="bDivid" alignment="0" pref="52" max="32767" attributes="0"/>
+                                      <Component id="bMulti" pref="52" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -103,7 +104,7 @@
                       <Component id="boton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="boton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="boton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonC" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonAC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -137,7 +138,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="botonC" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="117" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -229,12 +232,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton0ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="botonC">
+        <Component class="javax.swing.JButton" name="botonAC">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C"/>
+            <Property name="text" type="java.lang.String" value="AC"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonACActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bSumar">
@@ -280,6 +283,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bIgualActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonC">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="C"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

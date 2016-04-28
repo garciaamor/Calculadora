@@ -16,6 +16,8 @@ public class Maquina extends javax.swing.JFrame {
 
     ArrayList cadena=new ArrayList();
     String signo="";
+    int numero1;
+    int numero2;
     public Maquina() {
         initComponents();
         
@@ -42,13 +44,14 @@ public class Maquina extends javax.swing.JFrame {
         boton8 = new javax.swing.JButton();
         boton9 = new javax.swing.JButton();
         boton0 = new javax.swing.JButton();
-        botonC = new javax.swing.JButton();
+        botonAC = new javax.swing.JButton();
         bSumar = new javax.swing.JButton();
         bRestar = new javax.swing.JButton();
         bMulti = new javax.swing.JButton();
         bDivid = new javax.swing.JButton();
         Operacion = new javax.swing.JTextField();
         bIgual = new javax.swing.JButton();
+        botonC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,10 +128,10 @@ public class Maquina extends javax.swing.JFrame {
             }
         });
 
-        botonC.setText("C");
-        botonC.addActionListener(new java.awt.event.ActionListener() {
+        botonAC.setText("AC");
+        botonAC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCActionPerformed(evt);
+                botonACActionPerformed(evt);
             }
         });
 
@@ -169,6 +172,13 @@ public class Maquina extends javax.swing.JFrame {
             }
         });
 
+        botonC.setText("C");
+        botonC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -187,7 +197,7 @@ public class Maquina extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(boton3)
                                 .addGap(42, 42, 42)
-                                .addComponent(botonC, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(botonAC, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(boton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -196,7 +206,7 @@ public class Maquina extends javax.swing.JFrame {
                                 .addComponent(boton6)
                                 .addGap(42, 42, 42)
                                 .addComponent(bSumar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(boton7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,10 +218,11 @@ public class Maquina extends javax.swing.JFrame {
                                             .addComponent(boton9)
                                             .addComponent(bIgual))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bRestar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bDivid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bMulti, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(botonC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(bRestar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                                    .addComponent(bDivid, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                                    .addComponent(bMulti, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))))
                         .addGap(48, 48, 48)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -226,7 +237,7 @@ public class Maquina extends javax.swing.JFrame {
                     .addComponent(boton1)
                     .addComponent(boton2)
                     .addComponent(boton3)
-                    .addComponent(botonC))
+                    .addComponent(botonAC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,7 +263,9 @@ public class Maquina extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bDivid)
                             .addComponent(bIgual))))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonC)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -337,8 +350,8 @@ public class Maquina extends javax.swing.JFrame {
         String [] arraySeparado=resultado.split("[-+*/]");
         System.out.println(arraySeparado[0]);
         System.out.println(arraySeparado[1]);
-        int numero1=Integer.parseInt(arraySeparado[0]);
-        int numero2=Integer.parseInt(arraySeparado[1]);
+        numero1=Integer.parseInt(arraySeparado[0]);
+        numero2=Integer.parseInt(arraySeparado[1]);
         
         if (signo.equals("+")){
             resfinal=numero1+numero2;
@@ -362,9 +375,23 @@ public class Maquina extends javax.swing.JFrame {
             
     }//GEN-LAST:event_bIgualActionPerformed
 
-    private void botonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCActionPerformed
+    private void botonACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonACActionPerformed
         Operacion.setText("");
         Pantalla.setText("");
+    }//GEN-LAST:event_botonACActionPerformed
+        
+    private void botonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCActionPerformed
+       String numborrar = Operacion.getText();
+        System.out.println(numborrar);
+        String [] arrayBorrar=numborrar.split("[-+*/]");
+        System.out.println(arrayBorrar[0]);
+        System.out.println(arrayBorrar[1]);
+        int borrado1=Integer.parseInt(arrayBorrar[0]);
+        int borrado2=Integer.parseInt(arrayBorrar[1]);
+                
+            if (borrado2!=0){
+                Operacion.setText(Integer.toString(borrado1));
+            }
     }//GEN-LAST:event_botonCActionPerformed
 
     /**
@@ -420,6 +447,7 @@ public class Maquina extends javax.swing.JFrame {
     private javax.swing.JButton boton7;
     private javax.swing.JButton boton8;
     private javax.swing.JButton boton9;
+    private javax.swing.JButton botonAC;
     private javax.swing.JButton botonC;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
